@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "LearnPath AI"
+description = "A frontend-only personalized learning platform that builds adaptive paths from learner goals, skills, preferences, and progress using realistic local mock state."
+version = "1.0.0"
+id = "artifacts/learnpath-ai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21338
+
+[services.development]
+run = "pnpm --filter @workspace/learnpath-ai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/learnpath-ai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/learnpath-ai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21338"
+BASE_PATH = "/"

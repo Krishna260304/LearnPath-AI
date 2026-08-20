@@ -1,0 +1,2439 @@
+Build a complete, production-quality frontend for an AI-powered Personalized Learning Path Recommender platform.
+
+IMPORTANT:
+This task is FRONTEND ONLY.
+
+Do NOT build the backend, database, authentication server, AI models, recommendation engine, APIs, MongoDB integration, or external API integrations yet.
+
+Use mock data and local frontend state wherever backend data would normally be required.
+
+The frontend must be designed in a way that a FastAPI + MongoDB backend can be integrated later without redesigning the UI.
+
+==================================================
+1. PROJECT OVERVIEW
+==================================================
+
+The application is an AI-powered personalized learning platform.
+
+The system should not simply recommend courses.
+
+It should:
+
+1. Collect a detailed learner profile.
+2. Understand the learner's goal.
+3. Understand their background, interests, preferences, constraints, and learning history.
+4. Determine the learner's self-reported experience level.
+5. Generate a personalized diagnostic assessment for intermediate, advanced, and experienced learners.
+6. Analyze strengths and weaknesses.
+7. Create a verified skill profile.
+8. Identify skill gaps.
+9. Identify prerequisites.
+10. Generate a personalized learning path.
+11. Recommend courses, videos, documentation, projects, exercises, and assessments.
+12. Explain why resources are recommended.
+13. Track progress.
+14. Continuously assess the learner.
+15. Adapt the learning path based on performance.
+16. Provide an AI conversational learning assistant.
+17. Provide dashboards for learners and administrators.
+
+The UI should communicate that this is an intelligent adaptive learning platform rather than a normal course marketplace.
+
+==================================================
+2. TECHNOLOGY
+==================================================
+
+Use:
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Lucide React icons
+- Recharts for analytics
+- React Flow for skill/prerequisite visualization where appropriate
+- Framer Motion for subtle animations
+
+Do not introduce unnecessary frameworks.
+
+Use reusable components.
+
+Use TypeScript throughout the project.
+
+==================================================
+3. DESIGN SYSTEM
+==================================================
+
+Create a modern, professional SaaS-style education platform.
+
+Design inspiration:
+
+- Modern AI products
+- Coursera
+- Roadmap.sh
+- Notion
+- Linear
+- GitHub
+- modern learning dashboards
+
+Do NOT copy any existing website.
+
+The design should feel original.
+
+Visual direction:
+
+- Clean
+- Modern
+- Professional
+- Minimal
+- AI-focused
+- Academic but not boring
+- Premium SaaS appearance
+
+Use a light primary theme.
+
+Suggested visual language:
+
+- White/light gray backgrounds
+- Dark text
+- Blue/indigo primary accent
+- Subtle gradients
+- Rounded cards
+- Soft shadows
+- Clear typography
+- Large whitespace
+- Consistent spacing
+
+Avoid:
+
+- Excessive gradients
+- Excessive animations
+- Neon colors
+- Cartoon-like design
+- Excessive glassmorphism
+- Cluttered dashboards
+
+Use subtle animations only where they improve UX.
+
+==================================================
+4. RESPONSIVE DESIGN
+==================================================
+
+The entire application must be responsive.
+
+Support:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+Desktop should provide the full dashboard experience.
+
+Mobile should convert the sidebar into a drawer/bottom navigation where appropriate.
+
+All cards, charts, tables, assessments, and learning paths must adapt properly.
+
+==================================================
+5. APPLICATION STRUCTURE
+==================================================
+
+Create the following major sections:
+
+PUBLIC:
+
+/
+ /about
+ /how-it-works
+ /features
+ /login
+ /register
+ /forgot-password
+
+LEARNER:
+
+/onboarding
+/onboarding/background
+/onboarding/goals
+/onboarding/interests
+/onboarding/experience
+/onboarding/learning-preferences
+/onboarding/history
+/onboarding/constraints
+/onboarding/review
+/assessment
+/assessment/instructions
+/assessment/test
+/assessment/result
+
+/dashboard
+/learning-path
+/learning-path/:id
+/resources
+/resource/:id
+/projects
+/project/:id
+/skills
+/progress
+/assessments
+/assistant
+/profile
+/settings
+/notifications
+
+ADMIN:
+
+/admin/login
+/admin/dashboard
+/admin/users
+/admin/learners/:id
+/admin/resources
+/admin/assessments
+/admin/questions
+/admin/skills
+/admin/learning-paths
+/admin/analytics
+/admin/settings
+
+==================================================
+6. LANDING PAGE
+==================================================
+
+Create a high-quality landing page.
+
+Hero section:
+
+Headline:
+
+"Your Learning Path. Built for You."
+
+Supporting text:
+
+"AI-powered personalized learning paths that understand your goals, measure your skills, identify your gaps, and continuously adapt as you learn."
+
+Primary CTA:
+
+"Build My Learning Path"
+
+Secondary CTA:
+
+"See How It Works"
+
+Hero visual:
+
+Show a conceptual personalized learning dashboard.
+
+Display:
+
+Goal
+Skill assessment
+Skill gaps
+Learning path
+Progress
+
+Example:
+
+Goal:
+"Become an AI Engineer"
+
+Skill Match:
+72%
+
+Current Focus:
+Deep Learning
+
+Next:
+Transformers
+
+Below hero include:
+
+- How it works
+- Why personalization matters
+- Diagnostic assessment
+- AI recommendations
+- Adaptive learning
+- External resource discovery
+- Progress tracking
+- AI learning assistant
+
+==================================================
+7. NAVBAR
+==================================================
+
+Public navbar:
+
+Logo:
+"LearnPath AI"
+
+Navigation:
+
+- Home
+- How It Works
+- Features
+- About
+
+Buttons:
+
+"Log In"
+"Get Started"
+
+After login:
+
+Show user avatar.
+
+Dropdown:
+
+- Dashboard
+- Profile
+- Settings
+- Logout
+
+==================================================
+8. REGISTRATION SYSTEM
+==================================================
+
+Do not create a simple one-page registration form.
+
+Create a multi-step onboarding experience.
+
+The onboarding itself is one of the core features of the application.
+
+Progress indicator:
+
+Step 1 of 8
+
+Display a progress bar.
+
+Allow:
+
+- Next
+- Back
+- Save and Continue Later
+
+Show a summary of completed sections.
+
+==================================================
+9. REGISTRATION STEP 1 - BASIC INFORMATION
+==================================================
+
+Title:
+
+"Let's get to know you"
+
+Fields:
+
+- Full Name
+- Email
+- Password
+- Confirm Password
+- Age Range
+- Country
+- Preferred Language
+
+Optional:
+
+- Profile picture
+
+Add appropriate validation.
+
+Do not ask unnecessary personal information.
+
+==================================================
+10. REGISTRATION STEP 2 - EDUCATIONAL AND PROFESSIONAL BACKGROUND
+==================================================
+
+Title:
+
+"Tell us about your background"
+
+Questions:
+
+Current status:
+
+- School Student
+- Undergraduate Student
+- Postgraduate Student
+- Working Professional
+- Career Break
+- Self Learner
+- Other
+
+Education level:
+
+- High School
+- Diploma
+- Bachelor's
+- Master's
+- Doctorate
+- Other
+
+Field of study:
+
+Allow searchable selection.
+
+Current role:
+
+Optional.
+
+Years of professional experience:
+
+- None
+- Less than 1 year
+- 1-2 years
+- 3-5 years
+- 5+ years
+
+==================================================
+11. REGISTRATION STEP 3 - GOALS
+==================================================
+
+Title:
+
+"What are you trying to achieve?"
+
+Allow multiple goals.
+
+Options:
+
+- Learn a new skill
+- Get an internship
+- Get a job
+- Prepare for interviews
+- Career transition
+- Pass an examination
+- Build a portfolio
+- Build projects
+- Academic learning
+- Research
+- Certification
+- Personal interest
+
+Then ask:
+
+"What is your primary goal?"
+
+Allow one selection.
+
+Also provide a natural language goal field:
+
+"Describe your goal in your own words."
+
+Example:
+
+"I want to become a Machine Learning Engineer and get an internship within 6 months."
+
+Show AI-style text interpretation preview:
+
+Detected Goal:
+Machine Learning Engineer
+
+Target:
+Internship
+
+Timeline:
+6 months
+
+This is frontend-only mock behavior.
+
+==================================================
+12. REGISTRATION STEP 4 - AREAS OF INTEREST
+==================================================
+
+Title:
+
+"What do you want to learn?"
+
+Create selectable cards.
+
+Examples:
+
+- Programming
+- Data Structures & Algorithms
+- Web Development
+- Backend Development
+- Databases
+- Cloud Computing
+- DevOps
+- Machine Learning
+- Deep Learning
+- NLP
+- Computer Vision
+- Generative AI
+- LLMs
+- MLOps
+- Cybersecurity
+- System Design
+- Data Science
+- Mathematics
+- Statistics
+
+Allow multiple selections.
+
+Also allow:
+
+"Search for another skill"
+
+Selected skills should appear as removable chips.
+
+==================================================
+13. REGISTRATION STEP 5 - EXPERIENCE AND KNOWLEDGE
+==================================================
+
+Title:
+
+"How much do you already know?"
+
+Experience selection:
+
+- Beginner
+- Intermediate
+- Advanced
+- Experienced / Professional
+
+IMPORTANT:
+
+This selection must NOT automatically determine the learner's actual competency.
+
+Display a message:
+
+"Your experience level helps us design the right assessment. We'll use your assessment results to understand your actual strengths and gaps."
+
+For each selected knowledge area allow a self-reported level:
+
+Beginner
+Intermediate
+Advanced
+
+Example:
+
+Python
+Self-reported:
+Intermediate
+
+Machine Learning
+Self-reported:
+Intermediate
+
+Deep Learning
+Self-reported:
+Beginner
+
+==================================================
+14. REGISTRATION STEP 6 - LEARNING HISTORY
+==================================================
+
+Title:
+
+"What have you already learned?"
+
+Allow learners to add:
+
+Courses
+Certifications
+Books
+Tutorials
+University subjects
+Bootcamps
+Projects
+
+Create an "Add Learning Experience" modal.
+
+Fields:
+
+Type
+Name
+Platform
+Completion status
+Approximate completion date
+Self-rated confidence
+
+Also provide:
+
+"Skip this step"
+
+If the learner has completed resources, visually show them as cards.
+
+==================================================
+15. REGISTRATION STEP 7 - LEARNING PREFERENCES
+==================================================
+
+Title:
+
+"How do you learn best?"
+
+Resource preferences:
+
+- Videos
+- Articles
+- Documentation
+- Books
+- Interactive tutorials
+- Coding exercises
+- Projects
+- Quizzes
+- Hands-on labs
+
+Learning style:
+
+- Theory First
+- Practice First
+- Balanced
+- Project Based
+- Problem Based
+
+Learning pace:
+
+- Slow and Detailed
+- Balanced
+- Fast Paced
+- Challenge Oriented
+
+Preferred video length:
+
+- Under 10 minutes
+- 10-30 minutes
+- 30-60 minutes
+- Long-form courses
+
+==================================================
+16. REGISTRATION STEP 8 - TIME, CONSTRAINTS AND MOTIVATION
+==================================================
+
+Title:
+
+"Help us build a realistic plan"
+
+Available time:
+
+- <30 minutes/day
+- 30-60 minutes/day
+- 1-2 hours/day
+- 2-4 hours/day
+- 4+ hours/day
+
+Days per week:
+
+1-7
+
+Budget:
+
+- Free resources only
+- Mostly free
+- Paid resources are okay
+
+Other constraints:
+
+- Limited internet
+- Mobile only
+- No live classes
+- Prefer downloadable resources
+- Other
+
+Motivation:
+
+- Career
+- Internship
+- Job
+- Academic
+- Personal growth
+- Certification
+- Research
+
+==================================================
+17. REGISTRATION REVIEW
+==================================================
+
+Before completing onboarding show:
+
+"Review Your Learning Profile"
+
+Display all collected information in editable sections.
+
+Sections:
+
+Basic Information
+Background
+Goals
+Interests
+Experience
+Learning History
+Learning Preferences
+Constraints
+
+Buttons:
+
+"Edit"
+
+"Complete Profile"
+
+After completion:
+
+Show a processing screen:
+
+"Building your personalized learning profile..."
+
+Steps:
+
+Analyzing your goals
+Mapping required skills
+Preparing your assessment
+Identifying prerequisites
+
+Use subtle animations.
+
+==================================================
+18. EXPERIENCE-BASED ASSESSMENT FLOW
+==================================================
+
+IMPORTANT LOGIC:
+
+Beginner:
+
+Do not force a full diagnostic test.
+
+Show:
+
+"You're starting from the foundations."
+
+Button:
+
+"Start Learning"
+
+Optional:
+
+"Take a Basic Assessment"
+
+Intermediate:
+
+Mandatory diagnostic assessment.
+
+Advanced:
+
+Mandatory diagnostic assessment.
+
+Experienced:
+
+Mandatory advanced/domain-specific assessment.
+
+The frontend should visually demonstrate this behavior using mock state.
+
+==================================================
+19. ASSESSMENT INTRODUCTION PAGE
+==================================================
+
+Title:
+
+"Let's understand what you already know"
+
+Display:
+
+Goal
+Selected knowledge areas
+Estimated assessment duration
+Number of questions
+
+Example:
+
+Machine Learning
+30 Questions
+25 Minutes
+
+Sections:
+
+Python - 5 questions
+Statistics - 5 questions
+Machine Learning - 10 questions
+Deep Learning - 10 questions
+
+Message:
+
+"This assessment is not an exam. It helps us identify what you already know so we don't waste your time on topics you've mastered."
+
+Button:
+
+"Start Assessment"
+
+==================================================
+20. ASSESSMENT INTERFACE
+==================================================
+
+Create a professional exam interface.
+
+Left:
+
+Question navigator.
+
+Example:
+
+1 2 3 4 5 6 7 8 9 10
+
+Colors/states:
+
+Unanswered
+Answered
+Current
+Marked for review
+
+Center:
+
+Question
+
+Example:
+
+"Which technique is primarily used to reduce overfitting in a neural network?"
+
+Options:
+
+A. Increasing model complexity
+B. Regularization
+C. Removing training data
+D. Increasing learning rate
+
+Right/top:
+
+Timer.
+
+Progress:
+
+Question 12 of 30
+
+Bottom:
+
+Previous
+Mark for Review
+Next
+
+Final:
+
+Submit Assessment
+
+==================================================
+21. ASSESSMENT RESULT
+==================================================
+
+Create a visually impressive results page.
+
+Title:
+
+"Your Learning Profile is Ready"
+
+Overall score:
+
+68%
+
+Display skill breakdown:
+
+Python       91%
+Statistics   74%
+ML           82%
+Deep Learning 43%
+
+Use Recharts.
+
+Show:
+
+Strong Skills
+Improvement Areas
+Knowledge Gaps
+
+Example:
+
+Strong:
+
+Python
+Machine Learning
+
+Needs Attention:
+
+Deep Learning
+MLOps
+
+Show:
+
+"Your Personalized Path"
+
+Button:
+
+"View My Learning Path"
+
+==================================================
+22. MAIN LEARNER DASHBOARD
+==================================================
+
+This is the most important page.
+
+Layout:
+
+Left sidebar.
+
+Top navbar.
+
+Main content.
+
+Sidebar:
+
+Dashboard
+My Learning Path
+Explore Resources
+Projects
+Skills
+Assessments
+Progress
+AI Assistant
+
+Bottom:
+
+Notifications
+Settings
+Profile
+
+Main dashboard:
+
+Greeting:
+
+"Good evening, Krishna"
+
+Subtitle:
+
+"Here's what you should focus on today."
+
+==================================================
+23. DASHBOARD TOP CARDS
+==================================================
+
+Cards:
+
+Overall Progress
+42%
+
+Current Skill
+Deep Learning
+
+Learning Streak
+12 Days
+
+Next Milestone
+Transformers
+
+==================================================
+24. TODAY'S LEARNING
+==================================================
+
+Large card:
+
+"Today's Learning Plan"
+
+Example:
+
+1. Neural Networks Fundamentals
+30 minutes
+
+2. Backpropagation Practice
+20 minutes
+
+3. Quick Assessment
+10 minutes
+
+Button:
+
+"Start Learning"
+
+==================================================
+25. CURRENT LEARNING PATH
+==================================================
+
+Display a roadmap.
+
+Example:
+
+Python
+    |
+Statistics
+    |
+Machine Learning
+    |
+Deep Learning
+    |
+Transformers
+    |
+LLMs
+    |
+RAG
+    |
+Deployment
+
+Use visual states:
+
+Completed
+Current
+Locked
+Skipped
+
+Clicking a node opens details.
+
+==================================================
+26. SKILL DEVELOPMENT
+==================================================
+
+Create a radar chart using Recharts.
+
+Skills:
+
+Python
+Statistics
+Machine Learning
+Deep Learning
+MLOps
+
+Also show improvement:
+
+Python +12%
+ML +18%
+DL +25%
+
+==================================================
+27. RECOMMENDED RESOURCES
+==================================================
+
+Display resource cards.
+
+Each card:
+
+Resource thumbnail/icon
+Title
+Source
+Difficulty
+Duration
+Skills
+Why recommended
+
+Example:
+
+"Transformers Explained"
+
+YouTube
+
+Intermediate
+
+42 minutes
+
+Skills:
+
+Transformers
+Attention
+Deep Learning
+
+Why this was recommended:
+
+"Your assessment shows that you have completed the fundamentals of deep learning and are ready to begin transformer architectures."
+
+Buttons:
+
+Start
+Save
+Not Relevant
+
+==================================================
+28. RECOMMENDATION EXPLANATION
+==================================================
+
+When the user clicks:
+
+"Why recommended?"
+
+Open a modal.
+
+Show:
+
+Goal Alignment
+Skill Gap
+Prerequisite Match
+Difficulty Match
+Learning Preference
+
+Example:
+
+Goal Alignment:
+95%
+
+Skill Gap Match:
+88%
+
+Difficulty:
+Matches your current level
+
+Preferred Format:
+Video
+
+This makes the recommendation system transparent.
+
+==================================================
+29. LEARNING PATH PAGE
+==================================================
+
+Create a dedicated full-screen roadmap.
+
+Header:
+
+"My Personalized Learning Path"
+
+Goal:
+
+"Become an AI Engineer"
+
+Estimated duration:
+
+6 months
+
+Progress:
+
+42%
+
+Display phases:
+
+Phase 1
+Foundations
+Completed
+
+Phase 2
+Deep Learning
+In Progress
+
+Phase 3
+Transformers
+Locked
+
+Phase 4
+LLMs
+Locked
+
+Phase 5
+RAG
+Locked
+
+Phase 6
+Deployment
+Locked
+
+Phase 7
+Capstone Project
+Locked
+
+Each phase contains:
+
+Skills
+Resources
+Projects
+Assessment
+Milestone
+
+==================================================
+30. LEARNING PATH DETAIL
+==================================================
+
+Clicking a phase opens:
+
+Learning objective
+
+Required prerequisites
+
+Topics
+
+Resources
+
+Exercises
+
+Project
+
+Assessment
+
+Estimated time
+
+Example:
+
+Phase 2:
+
+"Deep Learning Fundamentals"
+
+Objective:
+
+"Understand neural networks, backpropagation, optimization, and CNN fundamentals."
+
+Resources:
+
+Video
+Documentation
+Interactive exercise
+
+Project:
+
+"Build an Image Classifier"
+
+Assessment:
+
+15 questions
+
+Button:
+
+"Start Phase"
+
+==================================================
+31. RESOURCE EXPLORER
+==================================================
+
+Create an Explore page.
+
+Tabs:
+
+All
+Videos
+Courses
+Documentation
+Projects
+Exercises
+
+Filters:
+
+Skill
+Difficulty
+Duration
+Format
+Source
+Free/Paid
+
+Search bar:
+
+"Search for a topic..."
+
+Cards should show:
+
+Source
+Title
+Description
+Difficulty
+Duration
+Skills
+Rating
+Why recommended
+
+==================================================
+32. PROJECTS PAGE
+==================================================
+
+Projects should be part of the learning path.
+
+Display:
+
+Recommended Projects
+
+Current Project
+
+Completed Projects
+
+Example:
+
+"Build a RAG-Based Question Answering System"
+
+Difficulty:
+Advanced
+
+Skills:
+
+Python
+LLM
+Embeddings
+Vector Database
+RAG
+
+Progress:
+
+35%
+
+Button:
+
+"Continue Project"
+
+==================================================
+33. SKILLS PAGE
+==================================================
+
+Create a skill intelligence dashboard.
+
+Show:
+
+Overall Skill Score
+
+Skill Tree
+
+Skill Categories
+
+Skill Levels
+
+Verified vs Self-Reported
+
+Example:
+
+Python
+
+Self Reported:
+Intermediate
+
+Verified:
+Advanced
+
+Confidence:
+91%
+
+Deep Learning
+
+Self Reported:
+Intermediate
+
+Verified:
+Beginner
+
+Confidence:
+89%
+
+This is an important feature.
+
+==================================================
+34. SKILL GAP VISUALIZATION
+==================================================
+
+Create a visual comparison:
+
+Required Level
+Current Level
+Gap
+
+Example:
+
+MLOps
+
+Required:
+70%
+
+Current:
+20%
+
+Gap:
+50%
+
+Use progress bars.
+
+Show:
+
+"Recommended Action"
+
+"Complete MLOps Fundamentals before starting deployment."
+
+==================================================
+35. SKILL KNOWLEDGE GRAPH
+==================================================
+
+Create an interactive visualization using React Flow.
+
+Example:
+
+Python
+   |
+NumPy
+   |
+Statistics
+   |
+Machine Learning
+   |
+Deep Learning
+   |
+Transformers
+   |
+LLMs
+   |
+RAG
+   |
+Deployment
+
+Nodes should have states:
+
+Completed
+Current
+Upcoming
+Locked
+
+Clicking a skill should show:
+
+Description
+Current score
+Required score
+Prerequisites
+Recommended resources
+
+==================================================
+36. ASSESSMENTS PAGE
+==================================================
+
+Display:
+
+Upcoming Assessments
+Completed Assessments
+Practice Assessments
+
+Each card:
+
+Topic
+Number of questions
+Difficulty
+Previous score
+Date
+
+Example:
+
+Deep Learning Assessment
+
+Previous:
+48%
+
+Latest:
+78%
+
+Button:
+
+"Retake"
+
+==================================================
+37. PROGRESS PAGE
+==================================================
+
+Create a comprehensive analytics dashboard.
+
+Charts:
+
+Learning progress over time
+Assessment scores
+Skill growth
+Learning hours
+Completed resources
+Projects completed
+
+Use Recharts.
+
+Show:
+
+Total learning hours
+Current streak
+Resources completed
+Assessments completed
+Projects completed
+Skills improved
+
+==================================================
+38. ADAPTIVE LEARNING NOTIFICATION
+==================================================
+
+If the learner performs poorly:
+
+Display notification:
+
+"We noticed you're struggling with Backpropagation."
+
+Recommendation:
+
+"Review this topic before continuing."
+
+Actions:
+
+Review Topic
+Take Practice Quiz
+Ask AI Assistant
+
+If performance improves:
+
+"Great improvement!"
+
+"Your Backpropagation score improved from 45% to 83%."
+
+==================================================
+39. AI LEARNING ASSISTANT
+==================================================
+
+Create a dedicated AI chat interface.
+
+Left:
+
+Conversation history.
+
+Center:
+
+Chat interface.
+
+Right:
+
+Learner context.
+
+Example:
+
+Current Goal:
+AI Engineer
+
+Current Topic:
+Deep Learning
+
+Current Skill:
+48%
+
+Current Phase:
+Phase 2
+
+Chat examples:
+
+User:
+
+"What should I study today?"
+
+AI:
+
+"Based on your current progress, I recommend completing the Backpropagation module followed by the short assessment."
+
+Other suggested questions:
+
+"Why was this course recommended?"
+"Can I skip this topic?"
+"What should I learn next?"
+"Give me a project."
+"I only have 30 minutes today."
+
+Use an AI-style interface but clearly indicate that responses will be powered by the backend later.
+
+For now, use mock responses.
+
+==================================================
+40. CHAT UI FEATURES
+==================================================
+
+Include:
+
+- Streaming-style response animation
+- Markdown rendering
+- Code blocks
+- Copy button
+- Suggested questions
+- Conversation history
+- Clear conversation
+- New conversation
+
+Use mock responses.
+
+==================================================
+41. PROFILE PAGE
+==================================================
+
+Display:
+
+Profile picture
+Name
+Email
+Education
+Experience
+Goals
+Interests
+Learning preferences
+
+Sections:
+
+Personal Information
+Learning Profile
+Skills
+Learning History
+Preferences
+
+Allow editing.
+
+==================================================
+42. SETTINGS PAGE
+==================================================
+
+Settings:
+
+Account
+Notifications
+Learning Preferences
+Privacy
+Appearance
+
+Notification preferences:
+
+Daily learning reminder
+Assessment reminder
+Progress updates
+New recommendations
+
+==================================================
+43. NOTIFICATIONS
+==================================================
+
+Create notification center.
+
+Examples:
+
+"Your new learning path is ready."
+
+"Your Deep Learning assessment is due."
+
+"You completed Phase 1."
+
+"Your skill score increased."
+
+"We found 3 new resources matching your goal."
+
+==================================================
+44. ADMIN LOGIN
+==================================================
+
+Create a separate admin login interface.
+
+Route:
+
+/admin/login
+
+Design should be visually consistent but clearly separate from learner login.
+
+Fields:
+
+Email
+Password
+
+Optional:
+
+Remember me
+
+Button:
+
+Admin Login
+
+==================================================
+45. ADMIN DASHBOARD
+==================================================
+
+Admin dashboard should provide platform-level analytics.
+
+Top cards:
+
+Total Learners
+Active Learners
+Learning Paths Generated
+Assessments Completed
+Resources Indexed
+
+Charts:
+
+New registrations
+Daily active learners
+Assessment completion
+Learning path completion
+Popular skills
+
+==================================================
+46. ADMIN USER MANAGEMENT
+==================================================
+
+Page:
+
+"Users"
+
+Table:
+
+Name
+Email
+Role
+Experience
+Goal
+Progress
+Status
+Joined Date
+
+Actions:
+
+View
+Edit
+Suspend
+Delete
+
+Search and filters.
+
+Filters:
+
+Role
+Status
+Experience
+Goal
+
+==================================================
+47. ADMIN LEARNER DETAIL
+==================================================
+
+When admin opens a learner:
+
+Show:
+
+Profile
+Goals
+Skills
+Assessment results
+Learning path
+Progress
+Learning history
+Feedback
+
+Skill chart.
+
+Assessment history.
+
+Learning activity.
+
+Recommended resources.
+
+==================================================
+48. ADMIN RESOURCE MANAGEMENT
+==================================================
+
+Display all resources.
+
+Columns:
+
+Title
+Source
+Skill
+Difficulty
+Type
+Status
+Created
+
+Actions:
+
+View
+Edit
+Approve
+Disable
+
+Filters:
+
+Source
+Skill
+Difficulty
+Type
+
+==================================================
+49. ADMIN ASSESSMENT MANAGEMENT
+==================================================
+
+Admin should see:
+
+Generated assessments
+Completed assessments
+Question bank
+Difficulty distribution
+Average scores
+
+Question management:
+
+Question
+Skill
+Topic
+Difficulty
+Correct answer
+Status
+
+Allow:
+
+Create
+Edit
+Delete
+Preview
+
+The actual AI generation will be backend functionality later.
+
+For frontend, create the interface only.
+
+==================================================
+50. ADMIN SKILL MANAGEMENT
+==================================================
+
+Display:
+
+Skill tree.
+
+Skills:
+
+Python
+Statistics
+Machine Learning
+Deep Learning
+Transformers
+LLMs
+RAG
+MLOps
+
+Admin can:
+
+Add skill
+Edit skill
+Delete skill
+Add prerequisite
+Remove prerequisite
+
+Use React Flow for the graph.
+
+==================================================
+51. ADMIN LEARNING PATH MANAGEMENT
+==================================================
+
+Admin can view generated learning paths.
+
+Show:
+
+Goal
+Required skills
+Phases
+Resources
+Projects
+Assessments
+
+Allow preview.
+
+Do not implement actual AI generation yet.
+
+==================================================
+52. ADMIN ANALYTICS
+==================================================
+
+Create advanced analytics dashboard.
+
+Metrics:
+
+Learner retention
+Learning path completion
+Assessment improvement
+Average skill improvement
+Most requested goals
+Most requested skills
+Most recommended resources
+Most completed resources
+Most skipped resources
+
+Charts:
+
+Line charts
+Bar charts
+Pie/donut charts
+Area charts
+
+==================================================
+53. AUTHENTICATION FRONTEND
+==================================================
+
+Implement frontend-only authentication state.
+
+Use mock users.
+
+Example learner:
+
+email:
+learner@example.com
+
+password:
+password123
+
+Example admin:
+
+email:
+admin@example.com
+
+password:
+admin123
+
+Do not create a real backend authentication system.
+
+Use localStorage for demo session state.
+
+Create:
+
+AuthContext
+
+ProtectedRoute
+
+RoleProtectedRoute
+
+Support:
+
+learner
+admin
+
+==================================================
+54. MULTIPLE LOGIN TYPES
+==================================================
+
+The system should support:
+
+Learner Login
+Admin Login
+
+On login:
+
+Learner -> /dashboard
+
+Admin -> /admin/dashboard
+
+If an unauthenticated user attempts to access protected routes:
+
+Redirect to /login.
+
+If a learner attempts to access admin pages:
+
+Redirect to /dashboard.
+
+==================================================
+55. MOCK DATA ARCHITECTURE
+==================================================
+
+Create a dedicated mock data layer.
+
+Example:
+
+src/
+  data/
+    users.ts
+    learners.ts
+    skills.ts
+    resources.ts
+    assessments.ts
+    learningPaths.ts
+    projects.ts
+    notifications.ts
+    analytics.ts
+
+The frontend should use these mock datasets.
+
+Later these can be replaced by API services.
+
+==================================================
+56. API-READY ARCHITECTURE
+==================================================
+
+Although no backend should be implemented now, structure the frontend so API integration is easy later.
+
+Create:
+
+src/
+  api/
+    auth.ts
+    profile.ts
+    assessment.ts
+    resources.ts
+    recommendations.ts
+    learningPath.ts
+    progress.ts
+    chat.ts
+    admin.ts
+
+For now, these should return mock data.
+
+Do not make real HTTP calls.
+
+Later they can be connected to:
+
+FastAPI
+MongoDB
+AI services
+YouTube API
+GitHub API
+Qdrant
+
+==================================================
+57. COMPONENT ARCHITECTURE
+==================================================
+
+Create reusable components.
+
+Example:
+
+components/
+  layout/
+    Navbar
+    Sidebar
+    AdminSidebar
+    PageHeader
+
+  ui/
+    Button
+    Card
+    Modal
+    Badge
+    ProgressBar
+    Tabs
+    Select
+    Input
+    Checkbox
+    Radio
+    Tooltip
+
+  learning/
+    LearningPath
+    LearningPhase
+    ResourceCard
+    SkillCard
+    ProjectCard
+    AssessmentCard
+
+  dashboard/
+    StatCard
+    SkillChart
+    ProgressChart
+    RecommendationCard
+    ActivityFeed
+
+  assessment/
+    QuestionCard
+    QuestionNavigator
+    AssessmentTimer
+    AssessmentProgress
+
+  chat/
+    ChatWindow
+    ChatMessage
+    SuggestedQuestions
+
+  admin/
+    UserTable
+    ResourceTable
+    AssessmentTable
+    AnalyticsCard
+
+==================================================
+58. ROUTING
+==================================================
+
+Use React Router.
+
+Public routes:
+
+/
+/about
+/how-it-works
+/features
+/login
+/register
+/forgot-password
+
+Onboarding:
+
+/onboarding
+/onboarding/background
+/onboarding/goals
+/onboarding/interests
+/onboarding/experience
+/onboarding/history
+/onboarding/preferences
+/onboarding/constraints
+/onboarding/review
+
+Assessment:
+
+/assessment
+/assessment/instructions
+/assessment/test
+/assessment/result
+
+Learner:
+
+/dashboard
+/learning-path
+/learning-path/:id
+/resources
+/resource/:id
+/projects
+/project/:id
+/skills
+/progress
+/assessments
+/assistant
+/profile
+/settings
+/notifications
+
+Admin:
+
+/admin/login
+/admin/dashboard
+/admin/users
+/admin/learners/:id
+/admin/resources
+/admin/assessments
+/admin/questions
+/admin/skills
+/admin/learning-paths
+/admin/analytics
+/admin/settings
+
+==================================================
+59. LOADING STATES
+==================================================
+
+Create polished loading states.
+
+Examples:
+
+Analyzing profile...
+
+Generating assessment...
+
+Building skill graph...
+
+Finding learning resources...
+
+Creating personalized learning path...
+
+Use skeleton loaders.
+
+==================================================
+60. EMPTY STATES
+==================================================
+
+Create meaningful empty states.
+
+Examples:
+
+No projects yet.
+
+No completed assessments.
+
+No saved resources.
+
+No notifications.
+
+No learning history.
+
+Each should have a CTA.
+
+==================================================
+61. ERROR STATES
+==================================================
+
+Create reusable error components.
+
+Example:
+
+"Something went wrong."
+
+"Try again"
+
+For frontend demo, simulate occasional errors where appropriate.
+
+==================================================
+62. ACCESSIBILITY
+==================================================
+
+Follow good accessibility practices.
+
+Use:
+
+- Semantic HTML
+- Proper labels
+- Keyboard navigation
+- Accessible buttons
+- Focus states
+- Sufficient contrast
+- ARIA where necessary
+
+==================================================
+63. ANIMATIONS
+==================================================
+
+Use Framer Motion carefully.
+
+Animations should include:
+
+Page transitions
+Card hover
+Progress updates
+Assessment transitions
+Modal transitions
+Sidebar transitions
+Learning path node transitions
+
+Do not over-animate the interface.
+
+==================================================
+64. RESPONSIVE MOBILE DASHBOARD
+==================================================
+
+On mobile:
+
+Replace sidebar with bottom navigation.
+
+Main navigation:
+
+Home
+Learning
+Resources
+Assistant
+Profile
+
+Dashboard cards should stack.
+
+Charts should resize.
+
+Assessment interface should remain usable.
+
+==================================================
+65. IMPORTANT USER EXPERIENCE FLOW
+==================================================
+
+The main user journey should be:
+
+Landing Page
+        |
+        v
+Register
+        |
+        v
+Multi-Step Onboarding
+        |
+        v
+Goal Analysis Preview
+        |
+        v
+Experience Selection
+        |
+        +-----------------------+
+        |                       |
+     Beginner              Intermediate+
+        |                       |
+        v                       v
+Learning Path          Diagnostic Assessment
+        |                       |
+        |                       v
+        |               Assessment Result
+        |                       |
+        +-----------+-----------+
+                    |
+                    v
+             Verified Profile
+                    |
+                    v
+              Skill Gap
+                    |
+                    v
+          Personalized Path
+                    |
+                    v
+                Learning
+                    |
+                    v
+               Assessment
+                    |
+                    v
+             Progress Update
+                    |
+                    v
+          Path Adaptation
+                    |
+                    v
+          Next Recommendation
+
+Make this workflow obvious throughout the UI.
+
+==================================================
+66. IMPORTANT DASHBOARD DIFFERENCE
+==================================================
+
+The learner dashboard should focus on:
+
+"What should I do next?"
+
+The admin dashboard should focus on:
+
+"What is happening across the platform?"
+
+Learner dashboard:
+
+- Personal progress
+- Current learning
+- Skills
+- Recommendations
+- Assessments
+- AI assistant
+
+Admin dashboard:
+
+- Users
+- Platform analytics
+- Resources
+- Assessments
+- Skills
+- Learning paths
+- System activity
+
+==================================================
+67. FRONTEND DEMO REQUIREMENT
+==================================================
+
+The entire frontend must be usable without a backend.
+
+A reviewer should be able to:
+
+1. Open the website.
+2. Register as a learner.
+3. Complete onboarding.
+4. Select Beginner/Intermediate/Advanced.
+5. See the appropriate assessment behavior.
+6. Take a mock diagnostic test.
+7. See skill analysis.
+8. See personalized learning path.
+9. Explore recommended resources.
+10. View skill gaps.
+11. View progress.
+12. Open AI assistant.
+13. View projects.
+14. Update mock progress.
+15. Logout.
+16. Login again.
+17. Login as admin.
+18. View admin dashboard.
+19. View users.
+20. View resources.
+21. View assessments.
+22. View skill graph.
+23. View platform analytics.
+
+Everything should work using mock frontend data.
+
+==================================================
+68. DATA PERSISTENCE FOR DEMO
+==================================================
+
+Use localStorage for:
+
+- Login session
+- Onboarding progress
+- Learner profile
+- Selected interests
+- Assessment answers
+- Assessment result
+- Learning progress
+- Saved resources
+- Notifications
+- Theme preference
+
+This is only for the frontend prototype.
+
+==================================================
+69. FINAL UI QUALITY
+==================================================
+
+The application should look like a real startup product rather than a student project.
+
+Focus heavily on:
+
+- Consistency
+- Spacing
+- Typography
+- Information hierarchy
+- Navigation
+- Responsive design
+- Empty states
+- Loading states
+- Error states
+- Micro-interactions
+- Data visualization
+
+Every page should look complete.
+
+Do not create placeholder pages that simply say:
+
+"Coming Soon"
+
+Instead create realistic mock interfaces.
+
+==================================================
+70. BRANDING
+==================================================
+
+Use the product name:
+
+"LearnPath AI"
+
+Tagline:
+
+"Learn Smarter. Learn Your Way."
+
+Alternative dashboard message:
+
+"Your goals. Your skills. Your path."
+
+Create a simple text/icon logo.
+
+Do not use copyrighted logos.
+
+For external resources, use generic source badges such as:
+
+YouTube
+GitHub
+Documentation
+Kaggle
+
+==================================================
+71. FINAL REQUIREMENT
+==================================================
+
+Build the frontend as a complete, polished, responsive prototype.
+
+The most important features to demonstrate are:
+
+1. Multi-step intelligent onboarding.
+2. Multi-dimensional learner profiling.
+3. Experience-based diagnostic assessment.
+4. AI-style assessment generation interface.
+5. Skill strength and weakness analysis.
+6. Verified skill profile.
+7. Skill gap visualization.
+8. Prerequisite/skill knowledge graph.
+9. Personalized learning path.
+10. Resource recommendations.
+11. Recommendation explanations.
+12. Progress tracking.
+13. Continuous assessment.
+14. Adaptive learning path.
+15. AI learning assistant.
+16. Learner dashboard.
+17. Admin dashboard.
+18. Admin user management.
+19. Admin resource management.
+20. Admin assessment management.
+21. Admin skill management.
+22. Admin learning-path management.
+23. Admin analytics.
+24. Responsive design.
+25. Mock authentication.
+26. Mock data persistence.
+27. API-ready frontend architecture.
+
+IMPORTANT:
+Do not implement backend functionality.
+
+Do not connect MongoDB.
+
+Do not implement FastAPI.
+
+Do not implement real AI.
+
+Do not call YouTube/GitHub/Kaggle APIs.
+
+Do not implement real authentication.
+
+Use mock data and frontend state.
+
+However, structure the code cleanly so the backend can later be connected without changing the UI architecture.
+
+The final result should look like a production-ready AI learning platform prototype suitable for demonstrating to mentors, judges, or potential users.
