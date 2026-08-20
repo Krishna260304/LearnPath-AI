@@ -1,6 +1,6 @@
-# [Project name]
+# LearnPath AI
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+LearnPath AI is a frontend-only personalized learning platform that turns a learner's goal, current skills, and available time into an adaptive path they can follow with confidence.
 
 ## Run & Operate
 
@@ -22,23 +22,28 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/learnpath-ai/src/App.tsx` — complete frontend app, routes, local mock state, and reusable UI.
+- `artifacts/learnpath-ai/src/index.css` — LearnPath AI visual tokens and global styles.
+- `artifacts/api-server` — shared API scaffold retained for future backend integration; not used by the current frontend.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first release is intentionally frontend-only and uses local mock state so the product flow can be evaluated before backend contracts are finalized.
+- Route structure mirrors the intended future product surface so a FastAPI + MongoDB backend can be connected without redesigning the learner experience.
+- The visual language emphasizes focus, progress, and explainable recommendations rather than marketplace browsing.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The app includes a public landing experience, multi-step learner onboarding, adaptive diagnostic assessment, learner dashboard, personalized roadmap, resource explorer, projects, skill intelligence, analytics, notifications, profile/settings, and a mock AI learning assistant. Interactive state covers onboarding selections, assessment progress, saved resources, assistant messages, and learner progress actions.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+No persistent user preferences recorded.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The frontend is mounted at the root preview path and expects workflow-provided `PORT` and `BASE_PATH` values.
+- Backend, authentication, database, and AI integrations are intentionally deferred until the frontend experience is approved.
 
 ## Pointers
 
