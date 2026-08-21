@@ -2,14 +2,16 @@ FROM node:24-bookworm-slim AS build
 
 WORKDIR /app
 
-RUN corepack enable
+RUN corepack enable && corepack prepare pnpm@10.12.1 --activate
 
 COPY . .
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 ENV NODE_ENV=production
+
 ENV PORT=8084
+
 ENV BASE_PATH=/
 
 RUN pnpm --filter @workspace/learnpath-ai run build
@@ -26,7 +28,7 @@ RUN printf '%s\n' \
   '  root /usr/share/nginx/html;' \
   '  index index.html;' \
   '  location / {' \
-  '    try_files $$uri $$uri/ /index.html;' \
+  '    try_files $uri $uri/ /index.html;' \
   '  }' \
   '}' \
   > /etc/nginx/conf.d/default.conf
