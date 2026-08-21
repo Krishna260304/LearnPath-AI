@@ -98,14 +98,14 @@ const notifMock = [
 ];
 
 const dashStats = [
-  { label: 'Total learners', value: '24,832', delta: '+12.4%', color: '#1e8f87' },
-  { label: 'Active this week', value: '8,421', delta: '+8.7%', color: '#1e8f87' },
-  { label: 'Paths generated', value: '14,320', delta: '+16.2%', color: '#1e8f87' },
-  { label: 'Resources live', value: '18,492', delta: '+4.3%', color: '#1e8f87' },
-  { label: 'Assessments taken', value: '7,320', delta: '+11.1%', color: '#1e8f87' },
+  { label: 'Total learners', value: '24,832', delta: '+12.4%', color: '#176b65' },
+  { label: 'Active this week', value: '8,421', delta: '+8.7%', color: '#176b65' },
+  { label: 'Paths generated', value: '14,320', delta: '+16.2%', color: '#176b65' },
+  { label: 'Resources live', value: '18,492', delta: '+4.3%', color: '#176b65' },
+  { label: 'Assessments taken', value: '7,320', delta: '+11.1%', color: '#176b65' },
   { label: 'AI conversations', value: '42,931', delta: '+22.8%', color: '#d89c2c' },
-  { label: 'Skills in catalog', value: '486', delta: '+3.0%', color: '#1e8f87' },
-  { label: 'Projects shipped', value: '2,180', delta: '+9.5%', color: '#1e8f87' },
+  { label: 'Skills in catalog', value: '486', delta: '+3.0%', color: '#176b65' },
+  { label: 'Projects shipped', value: '2,180', delta: '+9.5%', color: '#176b65' },
 ];
 
 const activities = [
@@ -120,16 +120,16 @@ const activities = [
 // ─── Shared UI ────────────────────────────────────────────────────────────────
 
 const Badge = ({ children, green = false, yellow = false, red = false, blue = false }: { children: React.ReactNode; green?: boolean; yellow?: boolean; red?: boolean; blue?: boolean }) => {
-  const cls = green ? 'bg-[#dceee4] text-[#1e8f87]' : yellow ? 'bg-[#fae9bb] text-[#93611a]' : red ? 'bg-[#fbe9e5] text-[#a04b3e]' : blue ? 'bg-[#dde8f7] text-[#2b5faa]' : 'bg-[#edf0eb] text-[#5a6b64]';
+  const cls = green ? 'bg-[#dceee4] text-[#176b65]' : yellow ? 'bg-[#fae9bb] text-[#93611a]' : red ? 'bg-[#fbe9e5] text-[#a04b3e]' : blue ? 'bg-[#dde8f7] text-[#2b5faa]' : 'bg-[#edf0eb] text-[#5a6b64]';
   return <span className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold ${cls}`}>{children}</span>;
 };
 const Btn = ({ children, small = false, outline = false, danger = false, onClick }: { children: React.ReactNode; small?: boolean; outline?: boolean; danger?: boolean; onClick?: () => void }) => (
-  <button onClick={onClick} className={`inline-flex items-center gap-1.5 rounded-xl font-bold transition ${small ? 'px-3 py-1.5 text-xs' : 'px-4 py-2.5 text-sm'} ${danger ? 'bg-[#fbe9e5] text-[#a04b3e] hover:bg-[#f5d0ca]' : outline ? 'border border-[#ccd8ce] bg-[#fafbf8] text-[#36504a] hover:border-[#1e8f87]' : 'bg-[#1e8f87] text-white hover:bg-[#187a73]'}`}>{children}</button>
+  <button onClick={onClick} className={`inline-flex items-center gap-1.5 rounded-xl font-bold transition ${small ? 'px-3 py-1.5 text-xs' : 'px-4 py-2.5 text-sm'} ${danger ? 'bg-[#fbe9e5] text-[#a04b3e] hover:bg-[#f5d0ca]' : outline ? 'border border-[#ccd8ce] bg-[#fafbf8] text-[#36504a] hover:border-[#176b65]' : 'bg-[#176b65] text-[#f7f5ed] hover:bg-[#115a55]'}`}>{children}</button>
 );
 const THead = ({ cols }: { cols: string[] }) => <thead className="bg-[#f3f6f1] text-[10px] uppercase tracking-wider text-[#83918a]"><tr>{cols.map(c => <th key={c} className="px-4 py-3 text-left font-bold">{c}</th>)}</tr></thead>;
 const CardWrap = ({ title, sub, action, children }: { title: string; sub?: string; action?: React.ReactNode; children: React.ReactNode }) => (
   <section className="overflow-hidden rounded-2xl border border-[#dbe4da] bg-[#fafbf8] shadow-sm">
-    {(title || action) && <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e4e9e2] px-6 py-4"><div><h2 className="text-lg font-bold text-[#294843]">{title}</h2>{sub && <p className="mt-0.5 text-xs text-[#83918a]">{sub}</p>}</div>{action}</div>}
+    {(title || action) && <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e4e9e2] px-6 py-4"><div><h2 className="text-lg font-bold text-[#1f312e]">{title}</h2>{sub && <p className="mt-0.5 text-xs text-[#83918a]">{sub}</p>}</div>{action}</div>}
     {children}
   </section>
 );
@@ -145,20 +145,20 @@ function AdminLogin() {
     <div className="grid min-h-[100dvh] place-items-center bg-[#f4f6f1] px-5">
       <div className="w-full max-w-md rounded-3xl border border-[#dbe4da] bg-[#fafbf8] p-8 shadow-[0_20px_70px_rgba(42,67,57,.08)] md:p-10">
         <div className="flex items-center gap-3">
-          <span className="grid size-11 place-items-center rounded-2xl bg-[#1e8f87] text-white"><ShieldCheck size={22} /></span>
-          <div><p className="font-bold text-[#294843]">LearnPath AI</p><p className="font-mono text-[9px] uppercase tracking-widest text-[#89968f]">Admin control center</p></div>
+          <span className="grid size-11 place-items-center rounded-2xl bg-[#176b65] text-white"><ShieldCheck size={22} /></span>
+          <div><p className="font-bold text-[#1f312e]">LearnPath AI</p><p className="font-mono text-[9px] uppercase tracking-widest text-[#89968f]">Admin control center</p></div>
         </div>
         <p className="mt-10 font-mono text-[10px] uppercase tracking-[.18em] text-[#b17820]">Restricted access</p>
-        <h1 className="mt-3 text-4xl font-bold tracking-[-.05em] text-[#294843]">Administrator sign in</h1>
+        <h1 className="mt-3 text-4xl font-bold tracking-[-.05em] text-[#1f312e]">Administrator sign in</h1>
         <p className="mt-3 text-sm leading-6 text-[#718079]">This area is reserved for platform administrators only. There is no public admin registration.</p>
         <form className="mt-8 space-y-4" onSubmit={e => { e.preventDefault(); if (email === 'admin@example.com' && password === 'admin123') setLocation('/admin/dashboard'); else setError('Demo credentials: admin@example.com / admin123'); }}>
-          <label className="block text-sm font-bold text-[#36504a]">Email<input value={email} onChange={e => setEmail(e.target.value)} type="email" className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-3 text-sm outline-none focus:border-[#1e8f87] focus:ring-2 focus:ring-[#1e8f87]/10" /></label>
-          <label className="block text-sm font-bold text-[#36504a]">Password<input value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder="••••••••" autoComplete="current-password" className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-3 text-sm outline-none focus:border-[#1e8f87] focus:ring-2 focus:ring-[#1e8f87]/10" /></label>
-          <label className="flex items-center gap-2 text-xs text-[#718079]"><input type="checkbox" className="accent-[#1e8f87]" /> Remember me</label>
+          <label className="block text-sm font-bold text-[#36504a]">Email<input value={email} onChange={e => setEmail(e.target.value)} type="email" className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-3 text-sm outline-none focus:border-[#176b65] focus:ring-2 focus:ring-[#176b65]/10" /></label>
+          <label className="block text-sm font-bold text-[#36504a]">Password<input value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder="••••••••" autoComplete="current-password" className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-3 text-sm outline-none focus:border-[#176b65] focus:ring-2 focus:ring-[#176b65]/10" /></label>
+          <label className="flex items-center gap-2 text-xs text-[#718079]"><input type="checkbox" className="accent-[#176b65]" /> Remember me</label>
           {error && <p className="rounded-xl bg-[#fbe9e5] px-4 py-3 text-xs font-bold text-[#a04b3e]">{error}</p>}
-          <button className="w-full rounded-xl bg-[#1e8f87] px-4 py-3 text-sm font-bold text-white hover:bg-[#187a73]">Sign in <ArrowRight size={15} className="ml-1 inline" /></button>
+          <button className="w-full rounded-xl bg-[#176b65] px-4 py-3 text-sm font-bold text-white hover:bg-[#115a55]">Sign in <ArrowRight size={15} className="ml-1 inline" /></button>
         </form>
-        <button className="mt-5 w-full text-center text-xs font-bold text-[#1e8f87]">Forgot password?</button>
+        <button className="mt-5 w-full text-center text-xs font-bold text-[#176b65]">Forgot password?</button>
         <Link href="/" className="mt-8 block text-center text-xs font-bold text-[#83918a] hover:text-[#36504a]">← Return to learner site</Link>
       </div>
     </div>
@@ -173,9 +173,9 @@ function AdminShell({ children, active }: { children: React.ReactNode; active: S
   const [collapsed, setCollapsed] = useState(false);
 
   const Sidebar = () => (
-    <aside className={`flex h-full flex-col bg-[#1c3832] py-4 text-[#e7f0e8] transition-all ${collapsed ? 'w-[70px]' : 'w-[256px]'}`}>
+    <aside className={`flex h-full flex-col bg-[#172e29] py-4 text-[#e7f0e8] transition-all ${collapsed ? 'w-[70px]' : 'w-[256px]'}`}>
       <div className={`flex items-center gap-3 px-4 py-2 ${collapsed ? 'justify-center' : ''}`}>
-        <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-[#e8b044] text-[#1c3832]"><ShieldCheck size={18} /></span>
+        <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-[#e8b044] text-[#172e29]"><ShieldCheck size={18} /></span>
         {!collapsed && <span><span className="block text-sm font-bold">LearnPath AI</span><span className="font-mono text-[9px] uppercase tracking-widest text-[#7fa898]">Control center</span></span>}
         {!collapsed && <button onClick={() => setCollapsed(true)} className="ml-auto rounded-lg p-1 text-[#7fa898] hover:text-white"><X size={14} /></button>}
       </div>
@@ -183,21 +183,21 @@ function AdminShell({ children, active }: { children: React.ReactNode; active: S
       <nav className="mt-5 flex-1 space-y-0.5 px-2">
         {adminNav.map(({ slug, label, icon: Icon }) => (
           <Link key={slug} href={`/admin/${slug}`} onClick={() => setDrawer(false)}
-            className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs font-bold transition-colors ${active === slug ? 'bg-[#e8b044] text-[#1c3832]' : 'text-[#a8c6b8] hover:bg-[#2a4840] hover:text-white'} ${collapsed ? 'justify-center' : ''}`}
+            className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs font-bold transition-colors ${active === slug ? 'bg-[#e8b044] text-[#172e29]' : 'text-[#a8c6b8] hover:bg-[#243f39] hover:text-white'} ${collapsed ? 'justify-center' : ''}`}
             title={collapsed ? label : ''}>
             <Icon size={16} className="shrink-0" />
             {!collapsed && label}
           </Link>
         ))}
       </nav>
-      <button onClick={() => setLocation('/')} className={`mx-2 mt-2 flex items-center gap-2 rounded-xl px-3 py-2.5 text-xs font-bold text-[#a8c6b8] hover:bg-[#2a4840] hover:text-white ${collapsed ? 'justify-center' : ''}`}>
+      <button onClick={() => setLocation('/')} className={`mx-2 mt-2 flex items-center gap-2 rounded-xl px-3 py-2.5 text-xs font-bold text-[#a8c6b8] hover:bg-[#243f39] hover:text-white ${collapsed ? 'justify-center' : ''}`}>
         <LogOut size={15} />{!collapsed && 'Log out'}
       </button>
     </aside>
   );
 
   return (
-    <div className="flex min-h-[100dvh] bg-[#f3f6f1] text-[#294843]">
+    <div className="flex min-h-[100dvh] bg-[#f3f6f1] text-[#1f312e]">
       <div className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:shrink-0"><Sidebar /></div>
       {drawer && (
         <div className="fixed inset-0 z-50 lg:hidden">
@@ -218,8 +218,8 @@ function AdminShell({ children, active }: { children: React.ReactNode; active: S
               <Search size={15} className="text-[#89968f]" /><input placeholder="Search platform…" className="w-44 bg-transparent text-xs outline-none" />
             </label>
             <button className="relative rounded-xl p-2.5 text-[#60746d] hover:bg-[#e4ebe2]"><Bell size={18} /><span className="absolute right-2 top-2 size-1.5 rounded-full bg-[#e8b044]" /></button>
-            <span className="flex items-center gap-1.5 rounded-xl border border-[#ccd8ce] bg-white px-3 py-2 text-xs font-bold text-[#36504a]"><span className="size-2 rounded-full bg-[#1e8f87]" />Operational</span>
-            <span className="grid size-9 place-items-center rounded-xl bg-[#e8b044] text-xs font-bold text-[#1c3832]">AD</span>
+            <span className="flex items-center gap-1.5 rounded-xl border border-[#ccd8ce] bg-white px-3 py-2 text-xs font-bold text-[#36504a]"><span className="size-2 rounded-full bg-[#176b65]" />Operational</span>
+            <span className="grid size-9 place-items-center rounded-xl bg-[#e8b044] text-xs font-bold text-[#172e29]">AD</span>
           </div>
         </header>
         <main className="flex-1 p-5 lg:p-8 max-w-[1440px] w-full mx-auto">{children}</main>
@@ -235,14 +235,14 @@ function AdminDashboard() {
     <AdminShell active="dashboard">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-[#b17820]">System overview</p><h1 className="mt-2 text-4xl font-bold tracking-[-.05em]">Platform Control Center</h1><p className="mt-2 text-sm text-[#718079]">Monitor and control the LearnPath AI platform.</p></div>
-        <span className="flex items-center gap-2 rounded-full bg-[#dceee4] px-4 py-2 text-xs font-bold text-[#1e8f87]"><span className="size-2 animate-pulse rounded-full bg-[#1e8f87]" />All systems operational</span>
+        <span className="flex items-center gap-2 rounded-full bg-[#dceee4] px-4 py-2 text-xs font-bold text-[#176b65]"><span className="size-2 animate-pulse rounded-full bg-[#176b65]" />All systems operational</span>
       </div>
       <div className="mt-7 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {dashStats.map(({ label, value, delta }) => (
           <div key={label} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5 shadow-sm">
             <p className="text-xs text-[#83918a]">{label}</p>
-            <p className="mt-3 font-mono text-3xl font-medium text-[#294843]">{value}</p>
-            <p className="mt-2 text-xs font-bold text-[#1e8f87]">{delta} this month</p>
+            <p className="mt-3 font-mono text-3xl font-medium text-[#1f312e]">{value}</p>
+            <p className="mt-2 text-xs font-bold text-[#176b65]">{delta} this month</p>
           </div>
         ))}
       </div>
@@ -251,7 +251,7 @@ function AdminDashboard() {
           <div className="divide-y divide-[#edf0eb]">
             {activities.map(a => (
               <div key={a.event} className="flex items-center gap-4 px-6 py-4">
-                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-[#e8f1ec] text-[#1e8f87]"><CheckCircle2 size={16} /></span>
+                <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-[#e8f1ec] text-[#176b65]"><CheckCircle2 size={16} /></span>
                 <div className="flex-1 min-w-0"><p className="truncate text-sm font-bold">{a.event}</p><p className="mt-0.5 text-[10px] text-[#89968f]">{a.time} · {a.actor}</p></div>
                 <ArrowRight size={14} className="shrink-0 text-[#c0ccbf]" />
               </div>
@@ -290,7 +290,7 @@ function UsersModule() {
       </div>
       {selected && user ? (
         <div className="mt-7">
-          <button onClick={() => setSelected(null)} className="mb-5 flex items-center gap-2 text-sm font-bold text-[#1e8f87]">← Back to all users</button>
+          <button onClick={() => setSelected(null)} className="mb-5 flex items-center gap-2 text-sm font-bold text-[#176b65]">← Back to all users</button>
           <div className="grid gap-5 lg:grid-cols-[300px_1fr]">
             <CardWrap title={user.name}>
               <div className="p-5 space-y-3 text-sm">
@@ -298,7 +298,7 @@ function UsersModule() {
                 <div><p className="text-xs text-[#83918a]">Goal</p><p className="font-bold">{user.goal}</p></div>
                 <div><p className="text-xs text-[#83918a]">Experience</p><p className="font-bold">{user.experience}</p></div>
                 <div><p className="text-xs text-[#83918a]">Status</p><Badge green={user.status === 'Active'} red={user.status === 'Suspended'}>{user.status}</Badge></div>
-                <div><p className="text-xs text-[#83918a]">Progress</p><div className="mt-1.5 h-2 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#1e8f87]" style={{ width: `${user.progress}%` }} /></div><p className="mt-1 text-xs text-[#718079]">{user.progress}%</p></div>
+                <div><p className="text-xs text-[#83918a]">Progress</p><div className="mt-1.5 h-2 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#176b65]" style={{ width: `${user.progress}%` }} /></div><p className="mt-1 text-xs text-[#718079]">{user.progress}%</p></div>
                 <div><p className="text-xs text-[#83918a]">Joined</p><p className="font-bold">{user.joined}</p></div>
                 <div><p className="text-xs text-[#83918a]">Last active</p><p className="font-bold">{user.lastActive}</p></div>
               </div>
@@ -313,7 +313,7 @@ function UsersModule() {
                   {[['ML Foundations', 100, 'Complete'], ['Deep Learning', 62, 'Current'], ['Transformers', 0, 'Upcoming'], ['AI Systems', 0, 'Upcoming']].map(([ph, pct, st]) => (
                     <div key={ph as string} className="flex items-center gap-4 px-6 py-3.5">
                       <span className="flex-1 text-sm font-bold text-[#40534d]">{ph as string}</span>
-                      <div className="w-28 h-1.5 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#1e8f87]" style={{ width: `${pct}%` }} /></div>
+                      <div className="w-28 h-1.5 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#176b65]" style={{ width: `${pct}%` }} /></div>
                       <Badge green={st === 'Complete'} yellow={st === 'Current'}>{st as string}</Badge>
                     </div>
                   ))}
@@ -381,7 +381,7 @@ function LearningModule() {
       </div>
       <div className="mt-7 grid gap-3 sm:grid-cols-4">
         {[['Courses', '24'], ['Videos', '312'], ['Articles', '198'], ['Projects', '48']].map(([l, v]) => (
-          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#294843]">{v}</p></div>
+          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#1f312e]">{v}</p></div>
         ))}
       </div>
       <CardWrap title="Course catalog" sub="All courses — published, draft, and archived" action={<Btn outline small><RefreshCw size={13} />Refresh</Btn>} className="mt-5">
@@ -418,7 +418,7 @@ function LearningPathsModule() {
       </div>
       <div className="mt-7 grid gap-3 sm:grid-cols-4">
         {[['Total paths', '14,320'], ['Active', '8,421'], ['Completed', '4,291'], ['Archived', '1,608']].map(([l, v]) => (
-          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#294843]">{v}</p></div>
+          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#1f312e]">{v}</p></div>
         ))}
       </div>
       <CardWrap title="All learning paths" sub="Learner paths — generated and manual" action={<Btn outline small>Export CSV</Btn>} className="mt-5">
@@ -431,7 +431,7 @@ function LearningPathsModule() {
                   <td className="px-4 py-3.5 font-bold">{p.goal}</td>
                   <td className="px-4 py-3.5 text-[#53665f]">{p.learner}</td>
                   <td className="px-4 py-3.5">
-                    <div className="flex items-center gap-2"><div className="w-16 h-1.5 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#1e8f87]" style={{ width: `${p.progress}%` }} /></div><span className="font-mono text-xs">{p.progress}%</span></div>
+                    <div className="flex items-center gap-2"><div className="w-16 h-1.5 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#176b65]" style={{ width: `${p.progress}%` }} /></div><span className="font-mono text-xs">{p.progress}%</span></div>
                   </td>
                   <td className="px-4 py-3.5 font-mono text-xs">{p.phases}</td>
                   <td className="px-4 py-3.5"><Badge green={p.status === 'Active'} red={p.status === 'Suspended'}>{p.status}</Badge></td>
@@ -458,7 +458,7 @@ function SkillsModule() {
       </div>
       <div className="mt-7 grid gap-3 sm:grid-cols-4">
         {[['Total skills', '486'], ['Active', '472'], ['Disabled', '14'], ['Categories', '9']].map(([l, v]) => (
-          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#294843]">{v}</p></div>
+          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#1f312e]">{v}</p></div>
         ))}
       </div>
       <CardWrap title="Skill catalog" sub="Full taxonomy — searchable, editable" action={<Btn outline small>Export taxonomy</Btn>} className="mt-5">
@@ -474,7 +474,7 @@ function SkillsModule() {
                   <td className="px-4 py-3.5 font-mono text-xs">{s.learners.toLocaleString()}</td>
                   <td className="px-4 py-3.5"><div className="flex flex-wrap gap-1">{s.related.map(r => <Badge key={r}>{r}</Badge>)}</div></td>
                   <td className="px-4 py-3.5"><Badge green={s.status === 'Active'} red={s.status === 'Disabled'}>{s.status}</Badge></td>
-                  <td className="px-4 py-3.5"><div className="flex gap-2"><Btn small outline>Edit</Btn><button onClick={() => toggleSkill(s.name)} className="rounded-lg p-1.5 text-[#83918a] hover:text-[#294843]">{s.status === 'Active' ? <ToggleRight size={16} className="text-[#1e8f87]" /> : <ToggleLeft size={16} />}</button></div></td>
+                  <td className="px-4 py-3.5"><div className="flex gap-2"><Btn small outline>Edit</Btn><button onClick={() => toggleSkill(s.name)} className="rounded-lg p-1.5 text-[#83918a] hover:text-[#1f312e]">{s.status === 'Active' ? <ToggleRight size={16} className="text-[#176b65]" /> : <ToggleLeft size={16} />}</button></div></td>
                 </tr>
               ))}
             </tbody>
@@ -496,7 +496,7 @@ function AssessmentsModule() {
       </div>
       <div className="mt-7 grid gap-3 sm:grid-cols-4">
         {[['Total assessments', '312'], ['Published', '284'], ['Average score', '78%'], ['Total attempts', '42,931']].map(([l, v]) => (
-          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#294843]">{v}</p></div>
+          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#1f312e]">{v}</p></div>
         ))}
       </div>
       <CardWrap title="Assessment library" sub="All checkpoints and practice assessments" action={<Btn outline small>Export results</Btn>} className="mt-5">
@@ -536,7 +536,7 @@ function ResourcesModule() {
       </div>
       <div className="mt-7 grid gap-3 sm:grid-cols-4">
         {[['Total resources', '18,492'], ['Approved', '18,241'], ['Pending review', '2'], ['Quality avg', '91%']].map(([l, v]) => (
-          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#294843]">{v}</p></div>
+          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#1f312e]">{v}</p></div>
         ))}
       </div>
       {items.some(r => r.status === 'Pending') && (
@@ -544,7 +544,7 @@ function ResourcesModule() {
           <div className="flex items-center gap-2 mb-4"><AlertTriangle size={16} className="text-[#b17820]" /><p className="text-sm font-bold text-[#7a5618]">Resources awaiting approval</p></div>
           {items.filter(r => r.status === 'Pending').map(r => (
             <div key={r.id} className="flex flex-wrap items-center gap-3 rounded-xl border border-[#f0d090] bg-white p-4 mb-2 last:mb-0">
-              <div className="flex-1 min-w-0"><p className="font-bold text-sm text-[#294843]">{r.title}</p><p className="mt-0.5 text-xs text-[#83918a]">{r.source} · {r.type} · Skill: {r.skill} · Quality score: {r.quality}</p></div>
+              <div className="flex-1 min-w-0"><p className="font-bold text-sm text-[#1f312e]">{r.title}</p><p className="mt-0.5 text-xs text-[#83918a]">{r.source} · {r.type} · Skill: {r.skill} · Quality score: {r.quality}</p></div>
               <div className="flex gap-2"><Btn small onClick={() => approve(r.id)}><Check size={13} />Approve</Btn><Btn small danger onClick={() => reject(r.id)}><X size={13} />Reject</Btn></div>
             </div>
           ))}
@@ -612,11 +612,11 @@ function RecommendationsModule() {
             {weights.map(w => (
               <div key={w.key}>
                 <div className="flex justify-between text-xs mb-1"><span className="font-bold text-[#40534d]">{w.label}</span><span className="font-mono text-[#83918a]">{w.value}%</span></div>
-                <div className="h-2 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#1e8f87]" style={{ width: `${w.value * 3}%` }} /></div>
+                <div className="h-2 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#176b65]" style={{ width: `${w.value * 3}%` }} /></div>
               </div>
             ))}
             <div className="flex items-center justify-between pt-3 border-t border-[#e4e9e2]">
-              <span className="text-xs font-bold text-[#83918a]">Total: <span className="text-[#1e8f87]">100%</span></span>
+              <span className="text-xs font-bold text-[#83918a]">Total: <span className="text-[#176b65]">100%</span></span>
               <Btn small onClick={() => setSaved(true)}>{saved ? <><Check size={12} />Saved</> : 'Save weights'}</Btn>
             </div>
           </div>
@@ -640,17 +640,17 @@ function AIControlsModule() {
         <CardWrap title="AI model configuration" sub="Platform-wide AI model settings">
           <div className="p-5 space-y-5">
             <div className="flex items-center justify-between rounded-xl bg-[#f0f4ee] px-5 py-4">
-              <div><p className="text-xs text-[#83918a]">Current model</p><p className="font-bold text-[#294843]">Qwen 2.5-72B</p></div>
+              <div><p className="text-xs text-[#83918a]">Current model</p><p className="font-bold text-[#1f312e]">Qwen 2.5-72B</p></div>
               <Badge green>Operational</Badge>
             </div>
             <div>
               <div className="flex justify-between text-sm mb-2"><label className="font-bold text-[#36504a]">Temperature</label><span className="font-mono text-[#83918a]">{temp}</span></div>
-              <input type="range" min={0} max={1} step={0.1} value={temp} onChange={e => setTemp(parseFloat(e.target.value))} className="w-full accent-[#1e8f87]" />
+              <input type="range" min={0} max={1} step={0.1} value={temp} onChange={e => setTemp(parseFloat(e.target.value))} className="w-full accent-[#176b65]" />
               <div className="flex justify-between text-xs text-[#83918a] mt-1"><span>Conservative (0)</span><span>Creative (1)</span></div>
             </div>
             <div>
               <div className="flex justify-between text-sm mb-2"><label className="font-bold text-[#36504a]">Max tokens</label><span className="font-mono text-[#83918a]">{maxTokens}</span></div>
-              <input type="range" min={512} max={8192} step={256} value={maxTokens} onChange={e => setMaxTokens(parseInt(e.target.value))} className="w-full accent-[#1e8f87]" />
+              <input type="range" min={512} max={8192} step={256} value={maxTokens} onChange={e => setMaxTokens(parseInt(e.target.value))} className="w-full accent-[#176b65]" />
             </div>
             <Btn onClick={() => setSaved(true)}>{saved ? <><Check size={14} />Settings saved</> : 'Save configuration'}</Btn>
           </div>
@@ -660,7 +660,7 @@ function AIControlsModule() {
             {([['assistant', 'AI Learning assistant', 'Path coach and Q&A'], ['pathGen', 'AI Path generation', 'Personalized learning paths'], ['assessment', 'AI Assessment generation', 'Dynamic question creation'], ['resAnalysis', 'Resource analysis', 'AI content curation']] as const).map(([key, label, sub]) => (
               <div key={key} className="flex items-center justify-between px-6 py-4">
                 <div><p className="text-sm font-bold">{label}</p><p className="mt-0.5 text-xs text-[#83918a]">{sub}</p></div>
-                <button onClick={() => setEnabled(e => ({ ...e, [key]: !e[key] }))} className={`relative h-6 w-11 rounded-full transition-colors ${enabled[key] ? 'bg-[#1e8f87]' : 'bg-[#d4dbd1]'}`}>
+                <button onClick={() => setEnabled(e => ({ ...e, [key]: !e[key] }))} className={`relative h-6 w-11 rounded-full transition-colors ${enabled[key] ? 'bg-[#176b65]' : 'bg-[#d4dbd1]'}`}>
                   <span className={`absolute top-1 size-4 rounded-full bg-white shadow transition-transform ${enabled[key] ? 'left-6' : 'left-1'}`} />
                 </button>
               </div>
@@ -708,17 +708,17 @@ function AnalyticsModule() {
       </div>
       <div className="mt-7 grid gap-3 sm:grid-cols-4">
         {[['New learners (month)', '1,284', '+18%'], ['Avg sessions/week', '4.2', '+0.8'], ['Path completion rate', '62%', '+4%'], ['Avg assessment score', '78%', '+5pts']].map(([l, v, d]) => (
-          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#294843]">{v}</p><p className="mt-2 text-xs font-bold text-[#1e8f87]">{d} vs last period</p></div>
+          <div key={l} className="rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-5"><p className="text-xs text-[#83918a]">{l}</p><p className="mt-2 font-mono text-3xl text-[#1f312e]">{v}</p><p className="mt-2 text-xs font-bold text-[#176b65]">{d} vs last period</p></div>
         ))}
       </div>
       <CardWrap title="Learner signups and active users" sub="Weekly trend · last 8 weeks" className="mt-5">
         <div className="p-6">
-          <div className="flex gap-4 mb-5 text-xs"><span className="flex items-center gap-1.5"><i className="size-2 rounded-full bg-[#1e8f87]" />Signups</span><span className="flex items-center gap-1.5"><i className="size-2 rounded-full bg-[#e8b044]" />Active</span></div>
+          <div className="flex gap-4 mb-5 text-xs"><span className="flex items-center gap-1.5"><i className="size-2 rounded-full bg-[#176b65]" />Signups</span><span className="flex items-center gap-1.5"><i className="size-2 rounded-full bg-[#e8b044]" />Active</span></div>
           <div className="flex items-end gap-2 h-44 border-b border-l border-[#dbe4da]">
             {weeks.map((w, i) => (
               <div key={w} className="flex flex-1 flex-col items-center gap-1">
                 <div className="flex items-end gap-1 flex-1">
-                  <div className="w-4 rounded-t bg-[#1e8f87] opacity-80" style={{ height: `${(signups[i] / maxVal) * 140}px` }} />
+                  <div className="w-4 rounded-t bg-[#176b65] opacity-80" style={{ height: `${(signups[i] / maxVal) * 140}px` }} />
                   <div className="w-4 rounded-t bg-[#e8b044] opacity-80" style={{ height: `${(active[i] / maxVal) * 140}px` }} />
                 </div>
                 <span className="text-[9px] text-[#9aa7a0] rotate-[-35deg] origin-top-right mt-1">{w.slice(4)}</span>
@@ -733,7 +733,7 @@ function AnalyticsModule() {
             {[['AI Engineer', 34], ['Data Scientist', 28], ['Frontend Developer', 18], ['Cloud Engineer', 11], ['ML Engineer', 9]].map(([g, pct]) => (
               <div key={g} className="flex items-center gap-4 px-6 py-3.5">
                 <span className="flex-1 text-sm font-bold text-[#40534d]">{g}</span>
-                <div className="w-32 h-1.5 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#1e8f87]" style={{ width: `${pct * 2.5}%` }} /></div>
+                <div className="w-32 h-1.5 rounded-full bg-[#e3e9e1]"><div className="h-full rounded-full bg-[#176b65]" style={{ width: `${pct * 2.5}%` }} /></div>
                 <span className="font-mono text-xs text-[#83918a]">{pct}%</span>
               </div>
             ))}
@@ -768,9 +768,9 @@ function NotificationsModule() {
         <div className="mt-5 rounded-2xl border border-[#dbe4da] bg-[#fafbf8] p-6">
           <h2 className="mb-5 text-lg font-bold">Create notification</h2>
           <div className="grid gap-4 md:grid-cols-2">
-            <label className="block text-sm font-bold text-[#36504a]">Title<input className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#1e8f87]" placeholder="Notification title…" /></label>
-            <label className="block text-sm font-bold text-[#36504a]">Target audience<select className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#1e8f87]"><option>All Learners</option><option>New Learners</option><option>Advanced</option><option>Inactive</option></select></label>
-            <label className="block text-sm font-bold text-[#36504a] col-span-full">Message<textarea rows={3} className="mt-2 w-full resize-none rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#1e8f87]" placeholder="Notification message…" /></label>
+            <label className="block text-sm font-bold text-[#36504a]">Title<input className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#176b65]" placeholder="Notification title…" /></label>
+            <label className="block text-sm font-bold text-[#36504a]">Target audience<select className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#176b65]"><option>All Learners</option><option>New Learners</option><option>Advanced</option><option>Inactive</option></select></label>
+            <label className="block text-sm font-bold text-[#36504a] col-span-full">Message<textarea rows={3} className="mt-2 w-full resize-none rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#176b65]" placeholder="Notification message…" /></label>
           </div>
           <div className="mt-4 flex gap-3"><Btn>Publish now</Btn><Btn outline>Save draft</Btn><Btn outline onClick={() => setForm(false)}>Cancel</Btn></div>
         </div>
@@ -828,7 +828,7 @@ function SettingsModule() {
   const [ai, setAi] = useState(true);
   const [maint, setMaint] = useState(false);
   const Toggle = ({ on, set }: { on: boolean; set: (v: boolean) => void }) => (
-    <button onClick={() => set(!on)} className={`relative h-6 w-11 rounded-full transition-colors ${on ? 'bg-[#1e8f87]' : 'bg-[#d4dbd1]'}`}>
+    <button onClick={() => set(!on)} className={`relative h-6 w-11 rounded-full transition-colors ${on ? 'bg-[#176b65]' : 'bg-[#d4dbd1]'}`}>
       <span className={`absolute top-1 size-4 rounded-full bg-white shadow transition-transform ${on ? 'left-6' : 'left-1'}`} />
     </button>
   );
@@ -848,10 +848,10 @@ function SettingsModule() {
         </CardWrap>
         <CardWrap title="Platform identity">
           <div className="p-5 space-y-4">
-            <label className="block text-sm font-bold text-[#36504a]">Platform name<input defaultValue="LearnPath AI" className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#1e8f87]" /></label>
-            <label className="block text-sm font-bold text-[#36504a]">Tagline<input defaultValue="AI-powered personalized learning" className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#1e8f87]" /></label>
-            <label className="block text-sm font-bold text-[#36504a]">Default language<select className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#1e8f87]"><option>English (US)</option><option>Hindi</option><option>Spanish</option><option>French</option></select></label>
-            <label className="block text-sm font-bold text-[#36504a]">Timezone<select className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#1e8f87]"><option>UTC</option><option>Asia/Calcutta</option><option>America/New_York</option></select></label>
+            <label className="block text-sm font-bold text-[#36504a]">Platform name<input defaultValue="LearnPath AI" className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#176b65]" /></label>
+            <label className="block text-sm font-bold text-[#36504a]">Tagline<input defaultValue="AI-powered personalized learning" className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#176b65]" /></label>
+            <label className="block text-sm font-bold text-[#36504a]">Default language<select className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#176b65]"><option>English (US)</option><option>Hindi</option><option>Spanish</option><option>French</option></select></label>
+            <label className="block text-sm font-bold text-[#36504a]">Timezone<select className="mt-2 w-full rounded-xl border border-[#ccd8ce] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#176b65]"><option>UTC</option><option>Asia/Calcutta</option><option>America/New_York</option></select></label>
             <Btn><Check size={14} />Save settings</Btn>
           </div>
         </CardWrap>

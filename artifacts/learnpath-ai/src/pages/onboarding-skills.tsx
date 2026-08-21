@@ -160,8 +160,8 @@ const timeOptions = ['3–5 hours per week', '6–9 hours per week', '10+ hours 
 
 function MiniLogo() {
   return (
-    <div className="flex items-center gap-2.5 font-bold tracking-tight text-[#294843]">
-      <span className="grid size-8 place-items-center rounded-[10px] bg-[#e9ae3d] text-[#294843]">
+    <div className="flex items-center gap-2.5 font-bold tracking-tight text-[#1f312e]">
+      <span className="grid size-8 place-items-center rounded-[10px] bg-[#e9ae3d] text-[#1f312e]">
         <Compass size={18} strokeWidth={2.5} />
       </span>
       <span className="font-[Space_Grotesk,sans-serif] text-[17px]">
@@ -173,7 +173,7 @@ function MiniLogo() {
 
 const PrimaryBtn = ({ children, onClick, disabled = false }: { children: React.ReactNode; onClick?: () => void; disabled?: boolean }) => (
   <button onClick={onClick} disabled={disabled}
-    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1e8f87] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#187a73] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40">
+    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#176b65] px-5 py-3 text-sm font-bold text-[#f7f5ed] transition hover:bg-[#115a55] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40">
     {children}
   </button>
 );
@@ -210,12 +210,12 @@ function SkillPicker({ skills, onChange }: { skills: string[]; onChange: (s: str
     <div className="relative mt-8">
       {/* Input box + chips */}
       <div
-        className="min-h-[52px] cursor-text rounded-2xl border border-[#c8d5c4] bg-white p-3 shadow-sm transition focus-within:border-[#1e8f87] focus-within:ring-2 focus-within:ring-[#1e8f87]/10"
+        className="min-h-[52px] cursor-text rounded-2xl border border-[#c8d5c4] bg-white p-3 shadow-sm transition focus-within:border-[#176b65] focus-within:ring-2 focus-within:ring-[#176b65]/10"
         onClick={() => { setOpen(true); inputRef.current?.focus(); }}
       >
         <div className="flex flex-wrap gap-2">
           {skills.map(skill => (
-            <span key={skill} className="inline-flex items-center gap-1.5 rounded-lg bg-[#dceee4] px-2.5 py-1.5 text-xs font-bold text-[#1e8f87]">
+            <span key={skill} className="inline-flex items-center gap-1.5 rounded-lg bg-[#dceee4] px-2.5 py-1.5 text-xs font-bold text-[#176b65]">
               {skill}
               <button type="button" onClick={e => { e.stopPropagation(); toggle(skill); }} className="rounded-full p-0.5 hover:bg-[#bcdacf]" aria-label={`Remove ${skill}`}>
                 <X size={11} />
@@ -250,7 +250,7 @@ function SkillPicker({ skills, onChange }: { skills: string[]; onChange: (s: str
             <div className="flex gap-1 overflow-x-auto border-b border-[#edf0ea] bg-[#f6f8f4] px-3 py-2">
               <button
                 onClick={() => { setActiveCategory(null); setQuery(''); }}
-                className={`shrink-0 rounded-lg px-3 py-1.5 text-[11px] font-bold whitespace-nowrap transition ${!activeCategory && !query ? 'bg-[#1e8f87] text-white' : 'text-[#718079] hover:bg-[#e8eee6]'}`}
+                className={`shrink-0 rounded-lg px-3 py-1.5 text-[11px] font-bold whitespace-nowrap transition ${!activeCategory && !query ? 'bg-[#176b65] text-white' : 'text-[#718079] hover:bg-[#e8eee6]'}`}
               >
                 All
               </button>
@@ -258,7 +258,7 @@ function SkillPicker({ skills, onChange }: { skills: string[]; onChange: (s: str
                 <button
                   key={cat}
                   onClick={() => { setActiveCategory(cat); setQuery(''); }}
-                  className={`shrink-0 rounded-lg px-3 py-1.5 text-[11px] font-bold whitespace-nowrap transition ${activeCategory === cat ? 'bg-[#1e8f87] text-white' : 'text-[#718079] hover:bg-[#e8eee6]'}`}
+                  className={`shrink-0 rounded-lg px-3 py-1.5 text-[11px] font-bold whitespace-nowrap transition ${activeCategory === cat ? 'bg-[#176b65] text-white' : 'text-[#718079] hover:bg-[#e8eee6]'}`}
                 >
                   {cat}
                 </button>
@@ -272,7 +272,7 @@ function SkillPicker({ skills, onChange }: { skills: string[]; onChange: (s: str
                 <button type="button" onClick={addCustom}
                   className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-[#f0f5ef]">
                   <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-[#fae9bb] text-[#9b691c]"><Plus size={15} /></span>
-                  <span><span className="block text-sm font-bold text-[#294843]">Add "{query.trim()}"</span><span className="text-xs text-[#83918a]">Add as a custom skill</span></span>
+                  <span><span className="block text-sm font-bold text-[#1f312e]">Add "{query.trim()}"</span><span className="text-xs text-[#83918a]">Add as a custom skill</span></span>
                 </button>
               )}
 
@@ -286,7 +286,7 @@ function SkillPicker({ skills, onChange }: { skills: string[]; onChange: (s: str
                         <span className="block text-sm font-bold text-[#40534d]">{skill.name}</span>
                         {!activeCategory && <span className="text-[10px] uppercase tracking-wider text-[#9aa7a0]">{skill.category}</span>}
                       </span>
-                      {skills.includes(skill.name) ? <Check size={14} className="text-[#1e8f87]" /> : <Plus size={13} className="text-[#9aa7a0]" />}
+                      {skills.includes(skill.name) ? <Check size={14} className="text-[#176b65]" /> : <Plus size={13} className="text-[#9aa7a0]" />}
                     </button>
                   ))}
                 </div>
@@ -304,7 +304,7 @@ function SkillPicker({ skills, onChange }: { skills: string[]; onChange: (s: str
                   <div className="flex flex-wrap gap-1.5">
                     {['Python', 'Machine learning', 'React', 'TypeScript', 'Docker', 'SQL', 'PyTorch', 'System design', 'AWS', 'Node.js'].map(s => (
                       <button key={s} onClick={() => toggle(s)}
-                        className={`rounded-lg px-2.5 py-1.5 text-[11px] font-bold transition ${skills.includes(s) ? 'bg-[#dceee4] text-[#1e8f87]' : 'bg-[#f0f4ee] text-[#40534d] hover:bg-[#e2ede3]'}`}>
+                        className={`rounded-lg px-2.5 py-1.5 text-[11px] font-bold transition ${skills.includes(s) ? 'bg-[#dceee4] text-[#176b65]' : 'bg-[#f0f4ee] text-[#40534d] hover:bg-[#e2ede3]'}`}>
                         {s}{skills.includes(s) && <Check size={10} className="ml-1 inline" />}
                       </button>
                     ))}
@@ -343,7 +343,7 @@ export default function OnboardingSkills() {
   const steps = ['Destination', 'Skills', 'Rhythm', 'Time', 'Review'];
 
   return (
-    <div className="min-h-[100dvh] bg-[#f5f7f2] text-[#294843]">
+    <div className="min-h-[100dvh] bg-[#f5f7f2] text-[#1f312e]">
       <header className="flex h-[68px] items-center justify-between border-b border-[#dbe4da] bg-[#f5f7f2]/90 px-5 backdrop-blur-sm lg:px-10">
         <MiniLogo />
         <span className="font-mono text-[10px] uppercase tracking-widest text-[#83918a]">Profile setup · {step + 1}/5</span>
@@ -354,7 +354,7 @@ export default function OnboardingSkills() {
         <div className="mb-10 flex gap-1.5">
           {steps.map((s, i) => (
             <div key={s} className="flex-1">
-              <span className={`block h-1.5 rounded-full transition-all duration-300 ${i < step ? 'bg-[#1e8f87]' : i === step ? 'bg-[#e9ae3d]' : 'bg-[#dce4da]'}`} />
+              <span className={`block h-1.5 rounded-full transition-all duration-300 ${i < step ? 'bg-[#176b65]' : i === step ? 'bg-[#e9ae3d]' : 'bg-[#dce4da]'}`} />
             </div>
           ))}
         </div>
@@ -387,7 +387,7 @@ export default function OnboardingSkills() {
         ) : (
           <section className="animate-rise">
             <p className="font-mono text-xs uppercase tracking-[.18em] text-[#b17820]">Step {String(step + 1).padStart(2, '0')}</p>
-            <h1 className="mt-4 text-5xl font-bold leading-tight tracking-[-.06em] text-[#294843]">
+            <h1 className="mt-4 text-5xl font-bold leading-tight tracking-[-.06em] text-[#1f312e]">
               {step === 0 ? 'Where are you headed?' :
                step === 1 ? 'What do you already know?' :
                step === 2 ? 'How do you like to learn?' :
@@ -405,10 +405,10 @@ export default function OnboardingSkills() {
               <div className="mt-8 grid gap-2.5">
                 {destinations.map(d => (
                   <button key={d} onClick={() => setGoal(d)}
-                    className={`flex items-center justify-between rounded-2xl border p-4 text-left transition-all ${goal === d ? 'border-[#1e8f87] bg-[#e8f2ec] shadow-sm' : 'border-[#d5ddd2] bg-white hover:border-[#9eb9a5]'}`}
+                    className={`flex items-center justify-between rounded-2xl border p-4 text-left transition-all ${goal === d ? 'border-[#176b65] bg-[#e8f2ec] shadow-sm' : 'border-[#d5ddd2] bg-white hover:border-[#9eb9a5]'}`}
                     data-testid={`button-onboarding-goal-${d.slice(0, 10)}`}>
                     <span className="text-sm font-bold text-[#40534d]">{d}</span>
-                    <span className={`grid size-6 place-items-center rounded-full border transition-colors ${goal === d ? 'border-[#1e8f87] bg-[#1e8f87] text-white' : 'border-[#c0ccbf] text-transparent'}`}>
+                    <span className={`grid size-6 place-items-center rounded-full border transition-colors ${goal === d ? 'border-[#176b65] bg-[#176b65] text-white' : 'border-[#c0ccbf] text-transparent'}`}>
                       <Check size={13} />
                     </span>
                   </button>
@@ -418,7 +418,7 @@ export default function OnboardingSkills() {
                     <label className="block text-sm font-bold text-[#36504a]">Tell us about your destination</label>
                     <textarea autoFocus value={customGoal} onChange={e => setCustomGoal(e.target.value)} rows={3}
                       placeholder="e.g. I want to become a product designer, or build my own SaaS."
-                      className="mt-2 w-full resize-none rounded-xl border border-[#c0d0c2] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#1e8f87]"
+                      className="mt-2 w-full resize-none rounded-xl border border-[#c0d0c2] bg-white px-4 py-2.5 text-sm outline-none focus:border-[#176b65]"
                       data-testid="textarea-onboarding-custom-goal" />
                   </div>
                 )}
@@ -442,10 +442,10 @@ export default function OnboardingSkills() {
               <div className="mt-8 grid gap-2.5">
                 {(step === 2 ? rhythms : timeOptions).map(option => (
                   <button key={option} onClick={() => step === 2 ? setRhythm(option) : setTime(option)}
-                    className={`flex items-center justify-between rounded-2xl border p-4 text-left transition-all ${(step === 2 ? rhythm : time) === option ? 'border-[#1e8f87] bg-[#e8f2ec] shadow-sm' : 'border-[#d5ddd2] bg-white hover:border-[#9eb9a5]'}`}
+                    className={`flex items-center justify-between rounded-2xl border p-4 text-left transition-all ${(step === 2 ? rhythm : time) === option ? 'border-[#176b65] bg-[#e8f2ec] shadow-sm' : 'border-[#d5ddd2] bg-white hover:border-[#9eb9a5]'}`}
                     data-testid={`button-onboarding-option-${option.slice(0, 8)}`}>
                     <span className="text-sm font-bold text-[#40534d]">{option}</span>
-                    <span className={`grid size-6 place-items-center rounded-full border transition-colors ${(step === 2 ? rhythm : time) === option ? 'border-[#1e8f87] bg-[#1e8f87] text-white' : 'border-[#c0ccbf] text-transparent'}`}>
+                    <span className={`grid size-6 place-items-center rounded-full border transition-colors ${(step === 2 ? rhythm : time) === option ? 'border-[#176b65] bg-[#176b65] text-white' : 'border-[#c0ccbf] text-transparent'}`}>
                       <Check size={13} />
                     </span>
                   </button>
