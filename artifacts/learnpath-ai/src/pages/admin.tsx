@@ -190,10 +190,6 @@ function AdminShell({ children, active }: { children: React.ReactNode; active: S
           </Link>
         ))}
       </nav>
-      <div className={`mx-2 rounded-xl border border-[#2e564f] bg-[#1f3d37] p-3 text-xs ${collapsed ? 'hidden' : ''}`}>
-        <p className="font-bold text-[#d8eae2]">Demo environment</p>
-        <p className="mt-1 text-[#7fa898]">Local mock state only.</p>
-      </div>
       <button onClick={() => setLocation('/')} className={`mx-2 mt-2 flex items-center gap-2 rounded-xl px-3 py-2.5 text-xs font-bold text-[#a8c6b8] hover:bg-[#243f39] hover:text-white ${collapsed ? 'justify-center' : ''}`}>
         <LogOut size={15} />{!collapsed && 'Log out'}
       </button>
