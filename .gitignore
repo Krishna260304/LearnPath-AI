@@ -10,6 +10,7 @@ out-tsc
 
 # dependencies
 node_modules
+.pnpm-store
 
 # IDEs and editors
 /.idea
@@ -34,6 +35,8 @@ node_modules
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
+package-lock.json
+yarn.lock
 testem.log
 /typings
 
@@ -44,6 +47,5 @@ Thumbs.db
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
-# Replit
 .cache/
 .local/
